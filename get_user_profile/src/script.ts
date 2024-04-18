@@ -7,7 +7,7 @@ const params = new URLSearchParams(window.location.search);
 const code = params.get("code");
 
 if (!code) {
-    redirectToAuthCodeFlow(clientId);
+    await redirectToAuthCodeFlow(clientId);
 } else {
     const accessToken = await getAccessToken(clientId, code);
     const profile = await fetchProfile(accessToken);
